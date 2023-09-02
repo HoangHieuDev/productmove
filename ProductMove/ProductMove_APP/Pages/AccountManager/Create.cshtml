@@ -1,0 +1,143 @@
+﻿@page
+@model ProductMove_APP.Pages.AccountManager.CreateModel
+@{
+    ViewData["Title"] = "Create";
+}
+<body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+        <div class="layout-container">
+
+
+            <!-- Layout container -->
+            <div class="layout-page">
+
+                <!-- Content wrapper -->
+                <div class="content-wrapper">
+                    <!-- Content -->
+
+                    <div class="container-xxl flex-grow-1 container-p-y">
+                        <h4 class="fw-bold py-3 mb-4">Thông tin tài khoản</h4>
+                        <form method="post" enctype="multipart/form-data">
+                            <div class="row">
+                                <!-- Basic -->
+                                <div class="">
+                                    <div class="card mb-4">
+                                        <div class="card-body demo-vertical-spacing demo-only-element">
+                                            <label class="form-label" for="basic-default-Username">Tài Khoản</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text" id="basic-addon11">@@</span>
+
+                                                <input type="text" class="form-control" placeholder="Username"
+                                                       aria-label="Username"
+                                                       aria-describedby="basic-addon11" asp-for="input.userName" />
+
+                                            </div>
+                                            @{
+                                                if (ViewBag.checkUsername != null)
+                                                {
+                                                    <span class="text-danger">Tài khoản đã tồn tại.</span>
+                                                }
+                                                else
+                                                {
+                                                    <span asp-validation-for="input.userName" class="text-danger"></span>
+                                                }
+                                            }
+                                            <div class="form-password-toggle">
+                                                <label class="form-label" for="basic-default-password12">Mật khẩu</label>
+                                                <div class="input-group">
+                                                    <input type="password"
+                                                           class="form-control"
+                                                           id="basic-default-password12"
+                                                           placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                                           aria-describedby="basic-default-password2" asp-for="input.passWord" />
+                                                    <span id="basic-default-password2" class="input-group-text cursor-pointer">
+                                                        <i class="bx bx-hide"></i>
+                                                    </span>
+
+                                                </div>
+                                                <span asp-validation-for="input.passWord" class="text-danger"></span>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="defaultSelect" class="form-label">Phân quyền</label>
+                                                <select asp-for="input.decentralization" id="defaultSelect" class="form-select">
+                                                    <option value="Chọn phân quyền thích hợp">Chọn phân quyền thích hợp</option>
+                                                    <option value="Nhà phân phối">Nhà phân phối</option>
+                                                    <option value="Trung tâm bảo hành">Trung tâm bảo hành</option>
+                                                    <option value="Cơ sở sản xuất">Cơ sở sản xuất</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-password-toggle">
+                                                <label class="form-label" for="basic-default-Username">Email</label>
+                                                <div class="input-group">
+                                                    <input type="text"
+                                                           class="form-control"
+                                                           placeholder="Email"
+                                                           aria-label="Email" asp-for="input.email" />
+
+                                                </div>
+                                                <span asp-validation-for="input.email" class="text-danger"></span>
+                                            </div>
+
+                                            <label class="form-label" for="basic-default-Username">Address</label>
+                                            <div class="input-group">
+
+                                                <span class="input-group-text"><i class="bx bx-car"></i></span>
+
+                                                <input type="text"
+                                                       class="form-control"
+                                                       placeholder="Address"
+                                                       aria-label="Address " asp-for="input.address" />
+
+                                            </div>
+                                            <span asp-validation-for="input.address" class="text-danger"></span>
+                                            <div class="row mb-3">
+                                                <input type="submit" value="Thêm mới" class="btn btn-primary btn-buy-now" style="width:120px; margin-left:10px" />
+                                                <a style="width:120px; margin-left:10px" class="btn btn-danger btn-buy-now" asp-page="Index">Trở về</a>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- / Content -->
+
+
+                    <div class="content-backdrop fade"></div>
+                </div>
+                <!-- Content wrapper -->
+            </div>
+            <!-- / Layout page -->
+        </div>
+    </div>
+    </div>
+
+    <!-- / Layout wrapper -->
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="../assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+    <!-- Vendors JS -->
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
+
+    <!-- Page JS -->
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+</body>

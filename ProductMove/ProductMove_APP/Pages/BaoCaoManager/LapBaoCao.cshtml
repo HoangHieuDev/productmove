@@ -1,0 +1,185 @@
+﻿@page
+@model ProductMove_APP.Pages.BaoCaoManager.LapBaoCaoModel
+@{
+}
+<style>
+    .table-Report tr{
+        height:60px;
+    }
+</style>
+<body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        <!-- Layout container -->
+        <div class="layout-page">     
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <h3 class="fw-bold py-3 mb-4">Report</h3>
+              <h4>Enter the product's serial number information</h4>
+              <div class="row">
+                <!-- Basic -->
+                <div class="">
+                  <div class="card mb-4">                  
+                    <div class="card-body">
+                     <form method="post" enctype="multipart/form-data">
+                        <table class="table">
+                            <thead class="thead-light">
+                              <tr>
+                                <th scope="col" style="border:none">
+                                  <h2 style="text-align:center">Lập báo cáo</h2>
+                                <br />
+                                 Chọn thời gian lập báo
+                                 <br />
+                            <table class="table-Report">     
+                              <tr >
+                            <th>
+                                <input type="radio"
+                                       id="thang"
+                                       name="LoaiBaoCao"
+                                       value="1"
+                                       checked
+                                       onclick="EnableDisableTB()" />
+                                Lập báo cáo theo tháng
+                            </th>
+                            <th>
+                                <select class="form-control" name="thang" id="thangtxt">
+                                    <option value="checked">Chọn tháng</option>
+                                    <option value="01">01</option>
+                                    <option value="02">02</option>
+                                    <option value="03">03</option>
+                                    <option value="04">04</option>
+                                    <option value="05">05</option>
+                                    <option value="06">06</option>
+                                    <option value="07">07</option>
+                                    <option value="08">08</option>
+                                    <option value="09">09</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                            </th>
+                            <th>
+                                <input type="text"
+                                       id="thang_txt"
+                                       name="ThoiGian"
+                                       placeholder="Nhập năm" 
+                                         class="form-control"/>
+                            </th>
+
+                        </tr>   
+                        <tr >
+                            <th>
+                                <input type="radio"
+                                       id="nam"
+                                       name="LoaiBaoCao"
+                                       value="2"
+                                       onclick="EnableDisableTB()" />
+                                Lập báo cáo theo năm
+                            </th>
+                            <th>
+                                <input type="text"
+                                       id="namtxt"
+                                       name="ThoiGian"
+                                       disabled="disabled"
+                                       placeholder="Nhập năm" 
+                                         class="form-control"/>
+                            </th>
+
+                        </tr>                        
+                        <tr >
+                            <th>
+                                <input type="radio"
+                                       id="quy"
+                                       name="LoaiBaoCao"
+                                       value="3"
+                                       onclick="EnableDisableTB()" 
+/>
+                                Lập báo cáo theo quý
+                            </th>
+                            <th>
+                                <select class="form-control" id="quy_txt" name="thang" disabled="disabled">
+                                    <option value="checked">Chọn quý</option>
+                                    <option value="01">01</option>
+                                    <option value="02">02</option>
+                                    <option value="03">03</option>
+                                    <option value="04">04</option>
+                                </select>
+                            </th>
+                            <th>
+                                <input type="text"
+                                       id="quytxt"
+                                       name="ThoiGian"
+                                       disabled="disabled"
+                                       placeholder="Nhập năm" 
+                          class="form-control"
+                          />
+                            </th>
+                        </tr>
+                    </table>
+                </th>
+                <th style="border:none">
+                    <div class="row mb-3"  >
+                        <input type="submit" value="Lập Báo Cáo" class="btn btn-primary" />
+                    </div>
+                </th>
+            </tr>
+                       </thead>
+                     </table>
+                    </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <div class="content-backdrop fade"></div>
+          </div>
+        </div>
+      </div>
+      </div>
+   </div>  
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="../assets/vendor/js/menu.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script type="text/javascript">
+    function EnableDisableTB() {
+        var thang = document.getElementById("thang");
+        var nam = document.getElementById("nam");
+        var quy = document.getElementById("quy");
+        var thangtxt = document.getElementById("thangtxt");
+        var namtxt = document.getElementById("namtxt");
+        var quytxt = document.getElementById("quytxt");
+        thangtxt.disabled = thang.checked ? false : true;
+        thang_txt.disabled = thang.checked ? false : true;
+        thang_txt.value = "";
+        thangtxt.value = "";
+        if (!thangtxt.disabled) {
+            thangtxt.focus();
+        }
+        if (!thang_txt.disabled) {
+            thang_txt.focus();
+        }
+        namtxt.disabled = nam.checked ? false : true;
+        namtxt.value = "";
+        if (!namtxt.disabled) {
+            namtxt.focus();
+        }
+        quytxt.disabled = quy.checked ? false : true;
+        quy_txt.disabled = quy.checked ? false : true;
+        quy_txt.value = "";
+        quytxt.value = "";
+        if (!quytxt.disabled) {
+            quytxt.focus();
+        }
+        if (!quy_txt.disabled) {
+            quy_txt.focus();
+        }
+    }
+</script>
+
+  </body>

@@ -1,0 +1,79 @@
+﻿@page
+@model ProductMove_APP.Pages.ProductManager.DeleteModel
+@{
+    ViewData["Title"] = "Delete";
+}
+<body>
+    <div class="layout-wrapper layout-content-navbar">
+        <div class="layout-container">
+            <div class="layout-page">
+                <div class="content-wrapper">
+                    <div class="container-xxl flex-grow-1 container-p-y">
+                        <h4 class="fw-bold py-3 mb-4">Chỉnh sửa sản phẩm</h4>
+                        <div class="row">
+                            <div class="">
+                                <form method="post" enctype="multipart/form-data">
+                                    <input type="hidden" asp-for="product.idProduct" />
+                                    <div class="card mb-4">
+                                        <div class="card-body demo-vertical-spacing demo-only-element">
+                                            <div class="mb-3">
+                                                <label for="Type" class="form-label">Loại sản phẩm</label>
+                                                <select asp-for="product.idCategory" class="form-select" asp-items="@(new SelectList(ViewBag.category,"idCategory","categoryName"))" disabled></select>
+                                            </div>
+                                            <label class="form-label" for="basic-default-Username">Tên sản phẩm</label>
+                                            <div class="input-group">
+                                                <input type="text"
+                                                       class="form-control"
+                                                       placeholder="Product name"
+                                                       aria-label="Productname"
+                                                       aria-describedby="basic-addon11"
+                                                       asp-for="product.productName"
+                                                       readonly />
+                                            </div>
+                                            <label class="form-label" for="basic-default-Username">Giá thành</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text">VND</span>
+                                                <input type="text"
+                                                       class="form-control"
+                                                       aria-label="Price (to the nearest dollar)"
+                                                       readonly
+                                                       asp-for="product.price" />
+                                                <span class="input-group-text">.00</span>
+                                            </div>
+                                            <label class="form-label" for="basic-default-Username">Chi tiết sản phẩm</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text">Chi tiết sản phẩm</span>
+                                                <textarea class="form-control" aria-label="Describe" placeholder="Comment ..." readonly asp-for="product.description"></textarea>
+                                            </div>
+                                            <label class="form-label" for="basic-default-Username">Thời hạn bảo hành</label>
+                                            <div class="input-group">
+                                                <input type="text"
+                                                       class="form-control"
+                                                       aria-label="WarrantyPeriod"
+                                                       aria-describedby="basic-addon11"
+                                                       asp-for="product.warrantyPeriod"
+                                                       readonly />
+                                            </div>
+                                            <div class="row mb-3">
+                                                <input type="submit" value="Chỉnh sửa" class="btn btn-primary btn-buy-now" style="width:120px; margin-left:10px" />
+                                                <a style="width:120px; margin-left:10px" class="btn btn-danger btn-buy-now" asp-page="Index">Trở lại</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="content-backdrop fade"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="../assets/vendor/js/menu.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+</body>

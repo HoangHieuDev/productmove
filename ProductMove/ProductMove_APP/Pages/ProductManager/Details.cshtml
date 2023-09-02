@@ -1,0 +1,111 @@
+﻿@page
+@model ProductMove_APP.Pages.ProductManager.DetailModel
+@{
+     ViewData["Title"] = "Details";
+}
+<body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">      
+        <!-- Layout container -->
+        <div class="layout-page">     
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <h4 class="fw-bold py-3 mb-4"> Edit Product</h4>
+              <div class="row">
+                <!-- Basic -->
+                <div class="">
+                    <form method="post" enctype="multipart/form-data">
+                         <input type="hidden" asp-for="product.idProduct" />
+                  <div class="card mb-4">
+                    <div class="card-body demo-vertical-spacing demo-only-element">
+                          <div class="mb-3">
+                        <label for="Type" class="form-label">Type</label>
+                         <select asp-for="product.idCategory" class="form-select" asp-items="@(new SelectList(ViewBag.category,"idCategory","categoryName"))" disabled></select>
+                      </div>
+                        <label class="form-label" for="basic-default-Username">Product Name</label>
+                      <div class="input-group">     
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Product name"
+                          aria-label="Productname"
+                          aria-describedby="basic-addon11"
+                          asp-for="product.productName"
+                          readonly
+                        />
+                      </div>
+                       <label class="form-label" for="basic-default-Username">Price</label>
+                      <div class="input-group">
+                        <span class="input-group-text">$</span>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Price"
+                          aria-label="Price (to the nearest dollar)"
+                          readonly
+                          asp-for="product.price"
+                        />
+                        <span class="input-group-text">.00</span>
+                      </div>
+                       <label class="form-label" for="basic-default-Username">Describe</label>
+                      <div class="input-group">
+                        <span class="input-group-text">Describe</span>
+                        <textarea class="form-control" aria-label="Describe" placeholder="Comment ..." readonly asp-for="product.description"></textarea>
+                      </div>
+                       <label class="form-label" for="basic-default-Username">Warranty Period</label>
+                      <div class="input-group">     
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Warranty Period"
+                          aria-label="WarrantyPeriod"
+                          aria-describedby="basic-addon11"
+                          asp-for="product.warrantyPeriod"
+                          readonly
+                        />
+                      </div>
+                      <div class="row mb-3">
+                       
+                         <a style="width:120px; margin-left:10px" class="btn btn-danger btn-buy-now" asp-page="Index">Back</a>
+                       </div>            
+                  </div>
+                </div>
+                </form>
+              </div>
+            <!-- / Content -->
+    <div class="content-backdrop fade"></div>
+          </div>
+          <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+      </div>
+      </div>
+   </div>
+   </div>
+    <!-- / Layout wrapper -->
+
+    
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="../assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
+
+    <!-- Page JS -->
+
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+  </body>

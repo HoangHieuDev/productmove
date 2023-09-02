@@ -1,0 +1,28 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/{controller}/{action}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9002
+        }
+      ],
+      "UpstreamPathTemplate": "/api/{controller}/{action}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/{controller}/{action}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9003
+        }
+      ],
+      "UpstreamPathTemplate": "/apii/{controller}/{action}",
+      "UpstreamHttpMethod": [ "GET" ]
+    }
+  ]
+}

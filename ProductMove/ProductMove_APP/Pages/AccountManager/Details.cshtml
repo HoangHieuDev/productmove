@@ -1,0 +1,94 @@
+﻿@page
+@model ProductMove_APP.Pages.AccountManager.DetailsModel
+@{
+    ViewData["Title"] = "Details";
+}
+<body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+        <div class="layout-container">
+            <!-- Layout container -->
+            <div class="layout-page">
+                <!-- Content wrapper -->
+                <div class="content-wrapper">
+                    <div class="container-xxl flex-grow-1 container-p-y">
+                        <h4 class="fw-bold py-3 mb-4">Thông tin chi tiết</h4>
+                        <form method="post" enctype="multipart/form-data">
+                            <div class="row">
+                                <!-- Basic -->
+                                <div class="">
+                                    <div class="card mb-4">
+                                        <div class="card-body demo-vertical-spacing demo-only-element">
+                                            <label class="form-label" for="basic-default-Username">Tên đăng nhập</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text" id="basic-addon11">@@</span>
+
+                                                <input type="text" class="form-control" placeholder="Username"
+                                                       aria-label="Username"
+                                                       aria-describedby="basic-addon11" readonly asp-for="user.userName" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="defaultSelect" class="form-label">Phân quyền</label>
+                                                <input asp-for="user.decentralization" id="defaultSelect" readonly class="form-control">
+                                            </div>
+                                            <div class="form-password-toggle">
+                                                <label class="form-label" for="basic-default-Username">Email</label>
+                                                <div class="input-group">
+                                                    <input type="text"
+                                                           class="form-control"
+                                                           placeholder="Email"
+                                                           aria-label="Email" readonly asp-for="user.email" />
+                                                </div>
+                                                <span asp-validation-for="user.email" class="text-danger"></span>
+                                            </div>
+                                            <label class="form-label" for="basic-default-Username">Địa chỉ</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="bx bx-car"></i></span>
+                                                <input type="text"
+                                                       class="form-control"
+                                                       placeholder="Address"
+                                                       aria-label="Address " readonly asp-for="user.address" />
+                                            </div>
+                                            <span asp-validation-for="user.address" class="text-danger"></span>
+                                            <div class="row mb-3">
+                                                <a style="width:120px; margin-left:10px" class="btn btn-danger btn-buy-now" asp-page="Index">Back</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- / Content -->
+
+
+                    <div class="content-backdrop fade"></div>
+                </div>
+                <!-- Content wrapper -->
+            </div>
+            <!-- / Layout page -->
+        </div>
+
+    </div>
+    </div>
+    <!-- / Layout wrapper -->
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="../assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+    <!-- Vendors JS -->
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
+
+    <!-- Page JS -->
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+</body>

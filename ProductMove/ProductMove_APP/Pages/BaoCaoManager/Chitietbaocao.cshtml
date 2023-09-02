@@ -1,0 +1,236 @@
+﻿@page
+@model ProductMove_APP.Pages.BaoCaoManager.ChitietbaocaoModel
+@{
+
+}
+<link href="/css/print.css" rel="stylesheet" type="text/css" media="print" />
+<style>
+    .table-report {
+        margin-left: 300px;
+        margin-top: 20px;
+        width: 1580px;
+    }
+
+    #btnReport {
+        margin-bottom: 10px;
+    }
+
+    .table-report h4 {
+        margin-top: 20px;
+        color: red;
+    }
+
+    .table-report h3 {
+        text-align: center;
+    }
+</style>
+<div class="table-report">
+    <button class="btn btn-success btn-buy-now" id="btnReport">In Báo Cáo</button>
+    <div class="d-none" id="report">
+        
+        <h3 style="text-align:center; margin:10px;">Đơn vị báo cáo: @HttpContext.Session.GetString("phanquyen") ở @HttpContext.Session.GetString("diachi") </h3>
+        
+        <h2 style="text-align:center">Báo cáo nhập xuất hàng</h2>
+        @if (Model.report.typeOfReport == 1)
+        {
+            <h3 style="text-align:center">Tháng: @ViewBag.quy Năm: @ViewBag.nam </h3>
+        }
+        @if (Model.report.typeOfReport == 2)
+        {
+            <h3 style="text-align:center">Năm: @Model.report.time </h3>
+        }
+        @if (Model.report.typeOfReport == 3)
+        {
+            <h3 style="text-align:center">Quý: @ViewBag.quy Năm: @ViewBag.nam </h3>
+        }
+        <h4 style=" margin-top:20px;">Nhập Hàng</h4>
+        <div class="row">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Ngày Nhập Hàng</th>
+                        <th>Sản Phẩm</th>
+                        <th>Số Lượng</th>
+                        <th>Đơn Giá</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.imports)
+                    {
+
+                        <tr>
+                            <th> @item.importDate </th>
+                            <th> @item.productName </th>
+                            <th> @item.total </th>
+                            <th> @item.price </th>
+
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+        <h4 style=" margin-top:20px;">Xuất hàng</h4>
+        <div class="row">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Ngày Xuất Hàng</th>
+                        <th>Sản Phẩm</th>
+                        <th>Số Lượng</th>
+                        <th>Đơn Giá</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.exports)
+                    {
+
+                        <tr>
+                            <th> @item.exportDate </th>
+                            <th> @item.productName </th>
+                            <th> @item.total </th>
+                            <th> @item.price </th>
+
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+        <h4 style=" margin-top:20px; ">Tồn Kho tính đến thời điểm lập báo cáo</h4>
+        <div class="row">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Sản Phẩm</th>
+                        <th>Trạng Thái</th>
+                        <th>Tồn Kho</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.detailWarehouses)
+                    {
+
+                        <tr>
+                            <th> @item.productName </th>
+                            <th> @item.productStatus </th>
+                            <th> @item.totalProduct </th>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+        <h5 style="text-align:right">......., Ngày .... Tháng .... Năm .... </h5>
+        <h5 style="text-align:right;">        Người lập báo cáo         .</h5>
+    </div>
+    <div>
+        
+        <h3 style="text-align:center; margin:10px;">Đơn vị báo cáo: @HttpContext.Session.GetString("phanquyen") ở @HttpContext.Session.GetString("diachi") </h3>
+        
+        <h2 style="text-align:center">Báo cáo nhập xuất hàng</h2>
+        @if (Model.report.typeOfReport == 1)
+        {
+            <h3 style="text-align:center">Tháng: @ViewBag.quy Năm: @ViewBag.nam </h3>
+        }
+        @if (Model.report.typeOfReport == 2)
+        {
+            <h3 style="text-align:center">Năm: @Model.report.time </h3>
+        }
+        @if (Model.report.typeOfReport == 3)
+        {
+            <h3 style="text-align:center">Quý: @ViewBag.quy Năm: @ViewBag.nam </h3>
+        }
+        <h4 style=" margin-top:20px;">Nhập Hàng</h4>
+        <div class="row">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Ngày Nhập Hàng</th>
+                        <th>Sản Phẩm</th>
+                        <th>Số Lượng</th>
+                        <th>Đơn Giá</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.imports)
+                    {
+
+                        <tr>
+                            <th> @item.importDate </th>
+                            <th> @item.productName </th>
+                            <th> @item.total </th>
+                            <th> @item.price </th>
+
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+        <h4 style=" margin-top:20px;">Xuất hàng</h4>
+        <div class="row">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Ngày Xuất Hàng</th>
+                        <th>Sản Phẩm</th>
+                        <th>Số Lượng</th>
+                        <th>Đơn Giá</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.exports)
+                    {
+
+                        <tr>
+                            <th> @item.exportDate </th>
+                            <th> @item.productName </th>
+                            <th> @item.total </th>
+                            <th> @item.price </th>
+
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+        <h4 style=" margin-top:20px; ">Tồn Kho tính đến thời điểm lập báo cáo</h4>
+        <div class="row">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Sản Phẩm</th>
+                        <th>Trạng Thái</th>
+                        <th>Tồn Kho</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.detailWarehouses)
+                    {
+
+                        <tr>
+                            <th> @item.productName </th>
+                            <th> @item.productStatus </th>
+                            <th> @item.totalProduct </th>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+        <h5 style="text-align:right">......., Ngày .... Tháng .... Năm .... </h5>
+        <h5 style="text-align:right;">        Người lập báo cáo         .</h5>
+    </div>
+</div>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script>
+    $('#btnReport').click(function(){
+        document.body.innerHTML = document.all.item("report").innerHTML
+        window.print()
+        window.location.reload()
+
+    })
+</script>

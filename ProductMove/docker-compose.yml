@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  executiveboard_api:
+    image: ${DOCKER_REGISTRY-}executiveboardapi
+    build:
+      context: .
+      dockerfile: ExecutiveBoard_API/Dockerfile
+
+  suresellorganizers_api:
+    image: ${DOCKER_REGISTRY-}suresellorganizersapi
+    build:
+      context: .
+      dockerfile: SureSellOrganizers_API/Dockerfile
+

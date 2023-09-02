@@ -1,0 +1,17 @@
+﻿@page
+@model ProductMove_APP.Pages.BaoCaoManager.DeleteModel
+@{
+}
+<div style="margin-left: 300px;
+    margin-top: 20px;
+    width: 1580px;">
+
+
+<h1>Xóa báo cáo</h1>
+
+<h3>Bạn có chắc là muốn xóa báo cáo?</h3>
+<form method="post">
+    <input type="hidden" asp-for="@Model.report.idReport" />
+    <input type="submit" value="Xác nhận" class="btn btn-danger btn-buy-now" /> |
+    <a class="btn btn-primary btn-buy-now" asp-page="./Index">Trở về</a>
+</form></div>

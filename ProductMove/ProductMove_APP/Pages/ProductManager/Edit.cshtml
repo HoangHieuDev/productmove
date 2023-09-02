@@ -1,0 +1,120 @@
+﻿@page
+@model ProductMove_APP.Pages.ProductManager.EditModel
+@{
+    ViewData["Title"] = "Edit";
+}
+<body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+       
+
+        <!-- Layout container -->
+        <div class="layout-page">     
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <h4 class="fw-bold py-3 mb-4"> Edit Product</h4>
+
+              <div class="row">
+                <!-- Basic -->
+                <div class="">
+                     <form method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="product.idProduct" />
+                  <div class="card mb-4">
+          
+                    <div class="card-body demo-vertical-spacing demo-only-element">
+                         <div class="mb-3">
+                         <label asp-for="product.categoryName" class="form-label">Type</label>
+                        <select asp-for="product.idCategory" class="form-select" asp-items="@(new SelectList(ViewBag.category,"idCategory","categoryName"))"></select>
+                        <input asp-for="product.categoryName" value="null" hidden/>  
+                      </div>
+                        <label class="form-label" for="basic-default-Username" asp-for="product.productName">Product Name</label>
+                      <div class="input-group">     
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Product name"
+                          aria-label="Productname"
+                          aria-describedby="basic-addon11"
+                           asp-for="product.productName"
+                        />
+                      </div>
+                        <span asp-validation-for="product.productName" class="text-danger" style="padding-bottom:10px;"></span>
+                       <label class="form-label" for="basic-default-Username" asp-for="product.price">Price</label>
+
+                      <div class="input-group">
+                        <span class="input-group-text">$</span>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Price"
+                          aria-label="Price (to the nearest dollar)"
+                            asp-for="product.price"
+                        />
+                        <span class="input-group-text">.00</span>
+                      </div>
+                          <span asp-validation-for="product.price" class="text-danger" style="padding-bottom:10px;"></span>
+                        <label class="col-sm-3 col-form-label" asp-for="product.description"></label>
+                      <div class="input-group">
+                        <span class="input-group-text">Describe</span>
+                        <textarea class="form-control" aria-label="Describe" placeholder="Comment ..." asp-for="product.description"></textarea>
+                      </div>
+                       <span asp-validation-for="product.description" class="text-danger" style="padding-bottom:10px;"></span>
+                       <label class="form-label" for="basic-default-Username" asp-for="product.warrantyPeriod">Warranty Period</label>
+                      <div class="input-group">     
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Warranty Period"
+                          aria-label="WarrantyPeriod"
+                          aria-describedby="basic-addon11"
+                          asp-for="product.warrantyPeriod"
+                        />
+                      </div>
+                       <span asp-validation-for="product.warrantyPeriod" class="text-danger" style="padding-bottom:10px;"></span>
+                      <div class="row mb-3">
+                        <input type="submit" value="Edit" class="btn btn-primary btn-buy-now" style="width:120px; margin-left:10px"/>
+                         <a style="width:120px; margin-left:10px" class="btn btn-danger btn-buy-now" asp-page="Index">Back</a>
+                       </div>                   
+                  </div>
+                </div>
+             </form>
+              </div>
+            <!-- / Content -->            
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+      </div>
+      </div>
+   </div>
+   </div>
+    <!-- / Layout wrapper -->
+
+    
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="../assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
+
+    <!-- Page JS -->
+
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+  </body>
